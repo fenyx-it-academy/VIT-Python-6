@@ -6,7 +6,10 @@
 
 ## 2. Zar Yüzdesi
 
-Zar adlı 6 öğeli bir liste oluşturun. Bu listeyi sıfır değeriyle doldurun. 5000 kez tekrarlayarak 1 ile 6 arasında (tıpkı bir zar gibi) rastgele bir sayı oluşturun. Değer 1 ise, dizideki 0 öğesini 1 artırın, aynısı 2, 3, 4, 5 ve 6 değerleri için de geçerlidir. dice[0] öğesi, 1 değerinin kaç kez oluştuğunu gösterir. Veya genel olarak: zar[x-1], x'in kaç kez atıldığını gösterir.
+Zar adlı 6 öğeli bir liste oluşturun. Bu listeyi sıfır değeriyle doldurun. 5000 kez tekrarlayarak 1 ile 6 arasında (tıpkı bir zar gibi) rastgele bir sayı oluşturun. 
+
+Değer 1 ise, listedeki 0 öğesini 1 artırın, aynısı 2, 3, 4, 5 ve 6 değerleri için de geçerlidir. dice[0] öğesi, 1 değerinin kaç kez oluştuğunu gösterir. Veya genel olarak: zar[x-1], x'in kaç kez atıldığını gösterir.
+
 Tekrarın sonunda, listenin içeriğini 2 ondalık basamakla yüzde olarak yazdırın. Örneğin; "3 değerindeki atışların yüzdesi = %16,28"
 
 ## 3. Basic Import
@@ -15,9 +18,10 @@ my_dice.py adlı bir Python modülü oluşturun ve 2. soruda yazdığınız kodu
 
 ### Değişiklikler:
 
-5000 defa tekrar yerine verilen sayı değişkeninin tekrarını yapar.
-Yazdırmak yerine, yüzde dizisini döndürün.
-Ardından main.py adlı yeni bir modül oluşturun. "Tekrar numarasını girin:" kullanarak kullanıcıdan bir girdi alır. Ardından bu kullanıcı girişi ile rollDice yöntemini çağırın. Son olarak, her olasılığı yazdırın. Örneğin. "0 olasılığı 16.20'dir"
+Fonksiyon, 5000 defa tekrar yerine, verilen sayı değişkeni kadar tekrar yapar.
+Listeyi yazdırmak yerine, yüzde listesini döndürür.
+
+Ardından main.py adlı yeni bir modül oluşturun. "Tekrar numarasını girin:" yazisi ile kullanıcıdan bir girdi alin. Ardından bu kullanıcı girişi ile rollDice yöntemini çağırın. Son olarak, her olasılığı yazdırın. Örneğin. "0 olasılığı 16.20'dir"
 
 --------- 
 
