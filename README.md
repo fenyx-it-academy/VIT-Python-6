@@ -1,4 +1,4 @@
-# VIT-Python-6
+<!-- # VIT-Python-6
 
 ## 1. Rastgele Sayi Tahmini
 
@@ -33,4 +33,4 @@ Time Delta: https://www.hackerrank.com/challenges/python-time-delta/problem
 
 Diagonal Difference: https://www.hackerrank.com/challenges/diagonal-difference/problem
 
-Left Rotation: https://www.hackerrank.com/challenges/array-left-rotation/problem
+Left Rotation: https://www.hackerrank.com/challenges/array-left-rotation/problem -->
