@@ -37,3 +37,8 @@ for y in zar:
     yuzdelik=round(yuzdelik,2)
     print(f'{zaratis} degerinin yuzdelik karsılıgı {yuzdelik}')
     zaratis+=1
+    
+    
+  #Diğer sorunun cevabı dosya olarak eklendi.
+
+
