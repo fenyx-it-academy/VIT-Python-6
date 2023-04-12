@@ -17,8 +17,8 @@ while True:
             print('Lütfen büyük bir sayı giriniz')
         
         else:
-            bitir=time.time()-basla         #programın bitis zamanı için bu satırda basalngıc ile bitis arasındaki farkı aldık
-            print(f'Tebrikler tutulan  {tsayi} sayıyısını  {bitir} süresinde buldunuz')
+            bitir=round((time.time()-basla),1)         #programın bitis zamanı için bu satırda basalngıc ile bitis arasındaki farkı aldık
+            print(f'Tebrikler tutulan  {tsayi} sayıyısını  {bitir} saniyede buldunuz')
             break
     except ValueError:
         print(ValueError("Lütfen geçerli bir sayı giriniz"))      #eger farklı bir giriş yapılırsa kullanıcıya tekrar denemesi için hata mesajı yazdırıldı.
