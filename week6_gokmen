@@ -1,0 +1,91 @@
+# 1'den 100'e kadar rastgele bir tam sayı seçen bir program yazınız. Programınız kullanıcıdan tahminler istemelidir
+# – eğer kullanıcı yanlış tahmin ederse, tahminin çok yüksek veya çok düşük olduğunu yazdırmalıdır. Kullanıcı doğru 
+# tahmin ederse, program kullanıcının doğru cevabı tahmin etmek için ne kadar zaman harcadığını yazdırmalıdır. 
+# Kullanıcının geçerli girdi girip girmedigini kontrol etmeniz de gerekmektedir.
+
+from numpy import random 
+import time 
+randomnum = random.randint(100)
+t0 = time.time() # ne kadar surede tahmin edildi, zaman olcumu icin timer baslasin
+
+while True:
+    gues =int(input("Gues the number:"))
+    try:
+        if type (gues)!= int :
+            raise ValueError("Not integer entered")  # 
+        elif gues<1 or gues>100:
+            raise ValueError("Enter only 1-100")
+    except ValueError as err:
+        print(err)
+    else:         
+        if gues>randomnum:
+            print("insert smaller than that ")
+        elif gues < randomnum:
+            print("bigger")
+        elif gues == randomnum:
+            t1 = time.time()  # sure durdurulur
+            print(f"Good job. You got it in {t1-t0:.2f} seconds" )
+            break
+
+
+# Zar adlı 6 öğeli bir liste oluşturun. Bu listeyi sıfır değeriyle doldurun. 5000 kez tekrarlayarak 1 ile 6 arasında 
+# (tıpkı bir zar gibi) rastgele bir sayı oluşturun.Değer 1 ise, listedeki 0 öğesini 1 artırın, aynısı 2, 3, 4, 5 ve 6 
+# eğerleri için de geçerlidir. dice[0] öğesi, 1 değerinin kaç kez oluştuğunu gösterir. Veya genel 
+# olarak: zar[x-1], x'in kaç kez atıldığını gösterir.
+
+from numpy import random 
+dice = [0,0,0,0,0,0]
+for i in range(5000):
+    randomx = random.randint(1,7)
+    if randomx == 1:                  # dice[ramdomx-1] +- 1 ----> alternatif cozum olabilir 
+        dice[0]+=1
+    if randomx == 2:
+        dice[1]+=1
+    if randomx == 3:
+        dice[2]+=1
+    if randomx == 4:
+        dice[3]+=1
+    if randomx == 5:
+        dice[4]+=1   
+    if randomx == 6:
+        dice[5]+=1 
+    # print(randomx)
+for x in range(6):
+    print(f"Pecentage of {x+1} is % {dice[x]*100/5000}")    
+print(dice)
+
+# my_dice.py adlı bir Python modülü oluşturun ve 2. soruda yazdığınız kodu rollDice(sayı) adlı bir fonksiyona aktarın.
+# Değişiklikler:
+# Fonksiyon, 5000 defa tekrar yerine, verilen sayı değişkeni kadar tekrar yapar. Listeyi yazdırmak yerine, yüzde listesini döndürür.
+# Ardından main.py adlı yeni bir modül oluşturun. "Tekrar numarasını girin:" yazisi ile kullanıcıdan bir girdi alin. 
+# Ardından bu kullanıcı girişi ile rollDice yöntemini çağırın. Son olarak, her olasılığı yazdırın. Örneğin. "0 olasılığı 16.20'dir"
+
+# my_dice.py
+
+def rollDice(repeat):
+    # repeat = 0
+    from numpy import random 
+    dice = [0,0,0,0,0,0]
+    liste = []
+    for i in range(repeat):
+        randomx = random.randint(1,7)
+        if randomx == 1:
+            dice[0]+=1
+        if randomx == 2:
+            dice[1]+=1
+        if randomx == 3:
+            dice[2]+=1
+        if randomx == 4:
+            dice[3]+=1
+        if randomx == 5:
+            dice[4]+=1   
+        if randomx == 6:
+            dice[5]+=1 
+    percentage = map(lambda k: k*100/repeat, dice)   # zarin her yuzunun gelme yuzdesi
+    return (list(percentage))
+    
+# main.py
+
+import my_dice as mD
+repeat = int(input('How many times...'))
+print(mD.rollDice(repeat))
