@@ -1,0 +1,46 @@
+# 1. Rastgele Sayi Tahmini
+# 1'den 100'e kadar rastgele bir tam sayı seçen bir program yazınız. Programınız kullanıcıdan tahminler istemelidir.
+# – eğer kullanıcı yanlış tahmin ederse, tahminin çok yüksek veya çok düşük olduğunu yazdırmalıdır.
+# Kullanıcı doğru tahmin ederse, program kullanıcının doğru cevabı tahmin etmek için ne kadar zaman harcadığını yazdırmalıdır.
+# Kullanıcının geçerli girdi girip girmedigini kontrol etmeniz de gerekmektedir.
+
+import random
+from timeit import default_timer as timer
+start = timer()
+print("Merhaba,\nSayi tahmin etme oyununa hosgeldiniz.\n")
+Sayi = random.randint(1, 100)
+print("Bilgisayar seçimini yapti.\nİyi konsantre ol ve bilmeye çaliş.")
+Deneme = 0
+while True:
+    Deneme += 1
+    try:
+        Tahmin = int(input("Sence Sayi kac?\n"))
+        if Sayi > Tahmin:
+            print("Sayi daha buyuk")
+        elif Sayi < Tahmin:
+            print("Sayi daha kucuk")
+        else:
+            end = timer()
+            print("Dogru tahmin. {}.denemede, toplam {:.2f} saniyede buldunuz." .format(
+                Deneme, end-start))
+            break
+    except ValueError:
+        print("Bir rakam ariyoruz karakter degil 😜")
+
+
+# 2. Zar Yüzdesi
+# Zar adlı 6 öğeli bir liste oluşturun. Bu listeyi sıfır değeriyle doldurun.
+# 5000 kez tekrarlayarak 1 ile 6 arasında (tıpkı bir zar gibi) rastgele bir sayı oluşturun.
+# Değer 1 ise, listedeki 0 öğesini 1 artırın, aynısı 2, 3, 4, 5 ve 6 değerleri için de geçerlidir.
+# dice[0] öğesi, 1 değerinin kaç kez oluştuğunu gösterir. Veya genel olarak: zar[x-1], x'in kaç kez atıldığını gösterir.
+# Tekrarın sonunda, listenin içeriğini 2 ondalık basamakla yüzde olarak yazdırın. Örneğin; "3 değerindeki atışların yüzdesi = %16,28"
+
+Zar = [0, 0, 0, 0, 0, 0]
+for _ in range(5000):
+    i = random.randint(1, 6)
+    Zar[i-1] += 1
+Sayi = 1
+for j in Zar:
+    Yuzde = (j / sum(Zar))*100
+    print("{} degerindeki atislarin yuzdesi = %{:.2f}".format(Sayi, Yuzde))
+    Sayi += 1
