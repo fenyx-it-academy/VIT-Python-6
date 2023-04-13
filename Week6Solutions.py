@@ -8,27 +8,34 @@
 # Kullanicinin geçerli girdi girip girmedigini kontrol etmeniz de gerekmektedir.
 
 import random
+from datetime import datetime
 
+# Rastgele bir sayi seçin
 num = random.randint(1, 100)
-guess = None
-count = 0
 
+# Başlangiç zamanini kaydedin
+start_time = datetime.now()
+
+# Kullanicinin tahminlerini isteyin
+guess = None
 while guess != num:
     try:
-        guess = int(input("1 ile 100 arasinda bir tam sayi tahmin edin: "))
+        guess = int(input("1 ile 100 arasinda bir sayi tahmin edin: "))
     except ValueError:
-        print("Geçerli bir tam sayi girmediniz. Lütfen tekrar deneyin.")
+        print("Geçerli bir sayi girin.")
         continue
+    
+    if guess < num:
+        print("Tahmininiz çok düşük.")
+    elif guess > num:
+        print("Tahmininiz çok yüksek.")
 
-    count += 1
+# Bitiş zamanini kaydedin ve geçen süreyi hesaplayin
+end_time = datetime.now()
+time_elapsed = end_time - start_time
 
-    if guess > num:
-        print("Çok yüksek. Tekrar deneyin.")
-    elif guess < num:
-        print("Çok düşük. Tekrar deneyin.")
-    else:
-        print("Tebrikler, doğru tahmin ettiniz!")
-        print("{} defa da bildiniz.".format(count))
+print("Doğru tahmini {0} saniyede yaptiniz.".format(time_elapsed.total_seconds()))
+
 
 ## 2. Zar Yüzdesi
 
@@ -50,12 +57,4 @@ for i in range(6):
     percentage = (dice[i] / 5000) * 100
     print("{} değerindeki atişlarin yüzdesi = %{:.2f}".format(i+1, percentage))
 
-# ## 3. Basic Import
 
-# my_dice.py adli bir Python modülü oluşturun ve 2. soruda yazdiğiniz kodu rollDice(sayi) adli bir fonksiyona aktarin.
-# Fonksiyon, 5000 defa tekrar yerine, verilen sayi değişkeni kadar tekrar yapar.
-# Listeyi yazdirmak yerine, yüzde listesini döndürür.
-# Ardindan main.py adli yeni bir modül oluşturun. 
-# "Tekrar numarasini girin:" yazisi ile kullanicidan bir girdi alin. 
-# Ardindan bu kullanici girişi ile rollDice yöntemini çağirin. 
-# Son olarak, her olasiliği yazdirin. Örneğin. "0 olasiliği 16.20'dir"
