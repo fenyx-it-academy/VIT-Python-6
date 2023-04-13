@@ -2,7 +2,10 @@
 
 ## 1. Rastgele Sayi Tahmini
 
-#1'den 100'e kadar rastgele bir tam sayi seçen bir program yaziniz. Programiniz kullanicidan tahminler istemelidir – eğer kullanici yanliş tahmin ederse, tahminin çok yüksek veya çok düşük olduğunu yazdirmalidir. Kullanici doğru tahmin ederse, program kullanicinin doğru cevabi tahmin etmek için ne kadar zaman harcadiğini yazdirmalidir. Kullanicinin geçerli girdi girip girmedigini kontrol etmeniz de gerekmektedir.
+#1'den 100'e kadar rastgele bir tam sayi seçen bir program yaziniz.
+# Programiniz kullanicidan tahminler istemelidir – eğer kullanici yanliş tahmin ederse, tahminin çok yüksek veya çok düşük olduğunu yazdirmalidir. 
+# Kullanici doğru tahmin ederse, program kullanicinin doğru cevabi tahmin etmek için ne kadar zaman harcadiğini yazdirmalidir. 
+# Kullanicinin geçerli girdi girip girmedigini kontrol etmeniz de gerekmektedir.
 
 import random
 
