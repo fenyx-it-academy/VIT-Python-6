@@ -1,0 +1,67 @@
+#   6. Hafta Odevi
+
+# 1. Soru: Rastgele Sayi Tahmini
+
+import random , time # Bilgisayardan rastgele secim yapmasini isteyecegimiz ve sure tutacagimiz icin bu iki kutuphaneyi import ettim.
+baslangic=time.time() # Sure kod calistigi andan itibaren tutulmaya baslanacagi icin once sureyi baslattim.
+def tahmin(): # tahmin adi altinda bir fonksiyon tanimladim.
+    bilgisayar= random.randint(1,100) # bilgisayara  1 ile 100 arasinda rast gele bir tecih yaptirdim.
+    while True: 
+        kullanici= int(input("1'den 100'e kadar bir tahminde bulun:"))
+        fark1= bilgisayar-kullanici # Bilgisayarin tuttugu sayinin kullanicinin tuttugu sayidan buyuk oldugu durumlar icin bu degiskeni tanimladim.
+        fark2= kullanici-bilgisayar # # Bilgisayarin tuttugu sayinin kullanicinin tuttugu sayidan kucuk  oldugu durumlar icin bu degiskeni tanimladim.
+        if fark1 > 75:
+            print("Sen:",kullanici,"asiri dusuk, tekrar dene!")
+        elif fark1 > 50:
+            print("Sen:",kullanici,"oldukca dusuk, tekrar dene!")
+        elif fark1 > 20:
+            print("Sen:",kullanici,"dusuk ama yaklastin.")
+        elif fark1 > 10:
+            print("Sen:",kullanici,"dusuk ama hic bu kadar yaklasmamistin yaklastin.")
+        elif fark1 > 0:
+            print("Sen:",kullanici,"neredeyse buldun biraz daha arttir")
+        elif fark2 > 75:
+            print("Sen:",kullanici,"asiri yuksek!")
+        elif fark2 > 50:
+            print("Sen:",kullanici,"oldukca yuksek!")
+        elif fark2 > 20:
+            print ("Sen:",kullanici,"yuksek ama yaklastin.")
+        elif fark2 > 10:
+            print("Sen:",kullanici,"yuksek ama hic bu kadar yaklasmamistin yaklastin.")
+        elif fark2 > 0:
+            print("Sen:",kullanici,"neredeyse buldun biraz daha dusur")
+        elif bilgisayar==kullanici:
+            print(bilgisayar,"=",kullanici, "\nTebrikler Bildiniz") 
+            break
+tahmin() # Kod calismaya basladigi anda fonksiyonu cagirmasi icin bunu yazdim.
+bitis=time.time() # Tutulan sureyi sonlandirdim.
+gecen_sure= int(bitis - baslangic)
+print(gecen_sure,"saniyede tamamladiniz.")
+
+# 2. Soru: Zar Yuzdesi
+
+from random import choice
+zar=["1","2","3","4","5","6"]
+def zar_atisi():
+    global zar
+    atis= choice(zar)
+    return atis
+def yuzde_hesaplama():
+    bir= iki=uc=dort=bes=alti=0
+    for i in range (5000):
+        atis=zar_atisi()
+        if atis== "1":
+            bir +=1
+        elif atis=="2":
+            iki +=1
+        elif atis=="3":
+            uc +=1
+        elif atis=="4":
+            dort +=1
+        elif atis=="5":
+            bes +=1
+        elif atis=="6" :
+            alti +=1
+    print("5000 atis sonunda 3'un gelme olasiligi %",100*uc/5000,"'dir.")
+
+yuzde_hesaplama()
