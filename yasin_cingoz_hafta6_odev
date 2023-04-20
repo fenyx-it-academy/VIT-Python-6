@@ -1,0 +1,75 @@
+# Odev 1. Rastgele Sayi Tahmini
+# 1'den 100'e kadar rastgele bir tam sayı seçen bir program yazınız. Programınız kullanıcıdan tahminler istemelidir –
+# eğer kullanıcı yanlış tahmin ederse, tahminin çok yüksek veya çok düşük olduğunu yazdırmalıdır. 
+# Kullanıcı doğru tahmin ederse, program kullanıcının doğru cevabı tahmin etmek için ne kadar zaman harcadığını yazdırmalıdır. 
+# Kullanıcının geçerli girdi girip girmedigini kontrol etmeniz de gerekmektedir.
+
+import random
+import time
+saniye=time.time()
+sayi=random.randint(1,100)
+hak=10
+sayac=0
+print("""
+=========  SAYI TAHMIN ETME OYUNU  ======
+""")
+while True:
+    tah_edilen_sayi=int(input("Lutfen 1 ile 100 arasinda bir sayi girin: "))
+    print("Girdigin sayi sorgulaniyor...")
+    time.sleep(2)
+    hak-=1
+    sayac+=1
+    
+    if tah_edilen_sayi<sayi:
+     	print("Lutfen daha buyuk bir sayi girin: ")
+    elif tah_edilen_sayi>sayi:
+         print("Daha kucuk bir sayi girin: ")
+    else:
+        
+        print("Tebrikler... \nDogru sayi", sayi,"idi. " )
+        print("Sayiyi", sayac, "seferde buldunuz. " )
+        break
+    if hak==0:
+         print("Tahmin hakkiniz kalmadi.\Oyun bitti...")
+         print("Sayi", sayi,"idi." )
+         break
+bitis = time.time()
+print("Tahmin Suresi:",bitis - saniye)
+
+#Odev 2 Zar Atma
+#Zar adlı 6 öğeli bir liste oluşturun. Bu listeyi sıfır değeriyle doldurun. 
+# 5000 kez tekrarlayarak 1 ile 6 arasında (tıpkı bir zar gibi) rastgele bir sayı oluşturun.
+#Değer 1 ise, listedeki 0 öğesini 1 artırın, aynısı 2, 3, 4, 5 ve 6 değerleri için de geçerlidir. 
+# dice[0] öğesi, 1 değerinin kaç kez oluştuğunu gösterir. 
+# Veya genel olarak: zar[x-1], x'in kaç kez atıldığını gösterir.
+
+#Tekrarın sonunda, listenin içeriğini 2 ondalık basamakla yüzde olarak yazdırın.
+# Örneğin; "3 değerindeki atışların yüzdesi = %16,28"
+import random
+zar=[0,0,0,0,0,0]
+for i in range(0,5000):
+    rastgele=random.randint(0,5) #rastgele sayı oluşturuldu.
+    zar[rastgele]=zar[rastgele]+1 # oluşturulan zar kendi sayısına sayıya eklendi. 
+i=1
+for zarDeger in  zar:
+    print(f"zar {i}, {zarDeger} kez atıldı. %{(zarDeger/50):.2f}") #her zar kaç defa atıldı. Ekrana yüzdeliği 2 ondalıklı olacak şekilde yazıdırıldı.
+    i+=1
+#Odev 3
+
+#MY_main
+import odev2
+
+try:
+    tekrar = int(input("Tekrar sayisini girin:"))
+except ValueError:
+    print("Pozitif bir sayi girin!")
+except:
+    print("Hata Olustu!")
+
+odev2.rollDice(tekrar)
+
+
+
+    
+                       
+
