@@ -71,4 +71,74 @@ for dice in dices :
     print(f"{dice} sayisinin gelme olasiligi : {dices[dice]/5000} 'dir. ") 
     print(f"{dice} sayisi {dices[dice]} defe geldi.") 
     print("**********") 
+    
+    3. Basic Import
+my_dice.py adlı bir Python modülü oluşturun ve 2. soruda yazdığınız kodu rollDice(sayı) adlı bir fonksiyona aktarın.
+
+Değişiklikler:
+Fonksiyon, 5000 defa tekrar yerine, verilen sayı değişkeni kadar tekrar yapar. Listeyi yazdırmak yerine, yüzde listesini döndürür.
+
+Ardından main.py adlı yeni bir modül oluşturun. "Tekrar numarasını girin:" yazisi ile kullanıcıdan bir girdi alin. 
+Ardından bu kullanıcı girişi ile rollDice yöntemini çağırın. Son olarak, her olasılığı yazdırın. Örneğin. "0 olasılığı 16.20'dir"
+
+
+
+"""
+# my_dice.py adina sayfada rollDices()adinda bir fonsiyon olusturduk
+import random
+
+def rollDices(num_rolls):
+    dices = {1:0,2:0,3:0,4:0,5:0,6:0}  # zar=dice
+    for dice in range(num_rolls):
+        dice = random.randint(1,6)
+        dices[dice]+=1
+    for dice in dices:
+        print(f"{dice} sayisinin gelme olasiligi: {(dices[dice]/num_rolls):.3f} 'dir.") 
+        print(f"{dice} sayisi {dices[dice]} defa geldi.") 
+        print("**********") 
+
+
+rollDices(5000)
+#3.Sorunun ikinci kismi
+from my_dice import rollDices
+# SORU:Ardından main.py adlı yeni bir modül oluşturun. "Tekrar numarasını girin:" yazisi ile kullanıcıdan bir girdi alin. 
+# Ardından bu kullanıcı girişi ile rollDice yöntemini çağırın. Son olarak, her olasılığı yazdırın. Örneğin. "0 olasılığı 16.20'dir"
+
+# my_dice.py adina sayfada rollDices()adinda bir fonsiyon olusturduk
+import random
+
+def rollDices(num_rolls):
+    dices = {1:0,2:0,3:0,4:0,5:0,6:0}  # zar=dice
+    for dice in range(num_rolls):
+        dice = random.randint(1,6)
+        dices[dice]+=1
+    for dice in dices:
+        print(f"{dice} sayisinin gelme olasiligi: {(dices[dice]/num_rolls):.3f} 'dir.") 
+       # print(f"{dice} sayisi {dices[dice]} defa geldi.") 
+        print("**********") 
+
+
+#rollDices(5000)
+
+
+#  main.py adlı yeni bir modül olusturduk ve my_dice.py  den rollDicte() fonsiyonumuzu cagirdik 
+# ve kullanicidan gelen sayi kadar zar atip gelen sayilarin sadece gelme ihtimalini yuzdelik olata yazdirdik.
+
+
+while True:
+    try:
+        user_number = int(input("Lütfen bir tam sayı girin: "))
+
+        if user_number <= 0 :
+            print("0 dan buyuk olmali")
+        else:    
+            break
+    except ValueError:
+        print("Hata: Lütfen tam sayı girin.")
+        
+
+rollDices(user_number)
+
+
+
    
