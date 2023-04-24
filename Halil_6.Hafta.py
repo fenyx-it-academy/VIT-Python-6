@@ -57,12 +57,12 @@ while count < 5000:
     count += 1
 
 print(f"""
-1 degerindeki atislarin yuzdesi = %{round((zar[0]/50),2)}
-2 degerindeki atislarin yuzdesi = %{round((zar[1]/50),2)}
-3 degerindeki atislarin yuzdesi = %{round((zar[2]/50),2)}
-4 degerindeki atislarin yuzdesi = %{round((zar[3]/50),2)}
-5 degerindeki atislarin yuzdesi = %{round((zar[4]/50),2)}
-6 degerindeki atislarin yuzdesi = %{round((zar[5]/50),2)}
+1 degerindeki atislarin yuzdesi = %{(zar[0]/50):.2f}
+2 degerindeki atislarin yuzdesi = %{(zar[1]/50):.2f}
+3 degerindeki atislarin yuzdesi = %{(zar[2]/50):.2f}
+4 degerindeki atislarin yuzdesi = %{(zar[3]/50):.2f}
+5 degerindeki atislarin yuzdesi = %{(zar[4]/50):.2f}
+6 degerindeki atislarin yuzdesi = %{(zar[5]/50):.2f}
 """)
 
 # CEVAP_3_________________________
@@ -92,8 +92,8 @@ def roll_dice(sayi):
 
     list = []
     for i in zar:
-        a = (round((i * 100 / sayi), 2))
-        list.append(a)
+
+        list.append(f"{(i * 100 / sayi):.2f}")
 
     return (f"""
     1 degerindeki atislarin yuzdesi = %{list[0]}
@@ -116,9 +116,13 @@ from my_dice import roll_dice
 while True:
     try:
         user = int(input("Tekrar numarasını girin: "))
-        print(roll_dice(user))
+
         if user <= 0:
-            raise Exception("Lutfen 0 dan yuksek bir sayi giriniz")
-            continue
+            raise ArithmeticError("Lutfen 0 dan yuksek bir sayi giriniz")
+
     except ValueError:
         print("Lutfen tam sayi giriniz")
+    except ArithmeticError as err:
+        print(err)
+    else:
+        print(roll_dice(user))
