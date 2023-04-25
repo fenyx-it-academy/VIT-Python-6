@@ -28,7 +28,7 @@ while True:
     except ValueError :
         print("Please enter a NUMBER !!")
 end = timeit.default_timer()
-print(f"{number} of number {round(end-start)}sec founded .")
+print(f"number {number} found in {round(end-start)}seconds.")
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
