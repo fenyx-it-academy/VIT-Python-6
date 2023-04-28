@@ -1,0 +1,87 @@
+#soru 1
+#1'den 100'e kadar rastgele bir tam sayı seçen bir program yazınız.
+#Programınız kullanıcıdan tahminler istemelidir – eğer kullanıcı yanlış tahmin ederse,
+#tahminin çok yüksek veya çok düşük olduğunu yazdırmalıdır. Kullanıcı doğru tahmin ederse,
+#program kullanıcının doğru cevabı tahmin etmek için ne kadar zaman harcadığını yazdırmalıdır.
+#Kullanıcının geçerli girdi girip girmedigini kontrol etmeniz de gerekmektedir.
+
+import random
+import time
+
+sayi = random.randint(1, 100) # 1-100 arası rastgele bir sayı seçin
+tahmin = None
+tahmin_sayisi = 0
+baslangic_zamani = None
+
+while tahmin != sayi:
+    try:
+        tahmin = int(input("1-100 arasında bir sayı tahmin edin: "))
+    except ValueError:
+        print("Geçersiz bir giriş yaptınız. Lütfen bir tam sayı girin.")
+        continue
+
+    if tahmin < 1 or tahmin > 100:
+        print("Lütfen 1-100 arasında bir sayı girin.")
+        continue
+
+    tahmin_sayisi += 1
+
+    if tahmin < sayi:
+        print("Tahmininiz çok düşük.")
+    elif tahmin > sayi:
+        print("Tahmininiz çok yüksek.")
+    else:
+        bitis_zamani = time.time()
+        sure = round(bitis_zamani - baslangic_zamani, 2)
+        print(f"Tebrikler! {tahmin_sayisi} adımda doğru tahmin ettiniz ve {sure} saniye harcadınız.")
+    
+    if tahmin_sayisi == 1:
+        baslangic_zamani = time.time()
+        
+        
+        
+#soru2
+#Zar adlı 6 öğeli bir liste oluşturun. Bu listeyi sıfır değeriyle doldurun.
+#5000 kez tekrarlayarak 1 ile 6 arasında (tıpkı bir zar gibi) rastgele bir sayı oluşturun.
+#Değer 1 ise, listedeki 0 öğesini 1 artırın, aynısı 2, 3, 4, 5 ve 6 değerleri için de geçerlidir. 
+#dice[0] öğesi, 1 değerinin kaç kez oluştuğunu gösterir. Veya genel olarak: zar[x-1], x'in kaç kez atıldığını gösterir.
+#Tekrarın sonunda, listenin içeriğini 2 ondalık basamakla yüzde olarak yazdırın. Örneğin; "3 değerindeki atışların yüzdesi = %16,28"
+
+
+import random
+
+
+zar = [0, 0, 0, 0, 0, 0]  # Zar adlı 6 öğeli bir liste oluşturuldu ve sıfırlarla dolduruldu.
+
+def rollDice(sayi):
+    
+    for i in range(sayi):  # 5000 kez tekrarlanan döngü
+        x = random.randint(1, 6)  # 1 ile 6 arasında rastgele bir sayı oluşturuldu.
+        zar[x-1] += 1  # Oluşan sayıya karşılık gelen indeksteki öğenin değeri 1 artırıldı.
+    z=list(map(lambda k: k*100/sayi, zar))
+    return z  # Sonuç yazdırıldı.
+    
+#soru3
+#soru 3
+# my_dice.py adlı bir Python modülü oluşturun ve 2. soruda yazdığınız kodu rollDice(sayı) adlı bir fonksiyona aktarın.
+
+# Değişiklikler:
+# Fonksiyon, 5000 defa tekrar yerine, verilen sayı değişkeni kadar tekrar yapar. Listeyi yazdırmak yerine, yüzde listesini döndürür.
+# Ardından main.py adlı yeni bir modül oluşturun. "Tekrar numarasını girin:" yazisi ile kullanıcıdan bir girdi alin. 
+# Ardından bu kullanıcı girişi ile rollDice yöntemini çağırın. Son olarak, her olasılığı yazdırın. Örneğin. "0 olasılığı 16.20'dir"
+
+
+from my_dice import rollDIce 
+
+try:
+    sayi = int(input("sayi gir"))
+    if sayi<0:
+        raise TypeError("negatif deger alamaz")
+    
+    print(rollDice(1100))
+except ValueError:
+    print("lutfen sayisl ifade giriniz")
+except ZeroDivisionError:
+    print("sayi sifir olamaz")
+except TypeError as err:
+    print(err)
